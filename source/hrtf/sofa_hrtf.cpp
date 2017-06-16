@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <math.h>
 
 #include <sofa_hrtf.h>
 
@@ -43,8 +44,8 @@ bool SOFA_HRTF::get(float f_azimuth, float f_elevation, float** pfHRTF)
 
     mysofa_getfilter_float(hrtf, p[0], p[1], p[2],
         pfHRTFNotDelayed[0], pfHRTFNotDelayed[1], &delaysSec[0], &delaysSec[1]);
-    delaysSamples[0] = std::roundf(delaysSec[0] * i_sampleRate);
-    delaysSamples[1] = std::roundf(delaysSec[1] * i_sampleRate);
+    delaysSamples[0] = roundf(delaysSec[0] * i_sampleRate);
+    delaysSamples[1] = roundf(delaysSec[1] * i_sampleRate);
 
     if (delaysSamples[0] > i_filterExtraLength
         || delaysSamples[1] > i_filterExtraLength)
